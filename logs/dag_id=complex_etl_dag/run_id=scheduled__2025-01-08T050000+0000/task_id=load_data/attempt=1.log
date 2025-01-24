@@ -1,0 +1,18 @@
+[2025-01-08T06:45:31.300+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-08T06:45:31.363+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: complex_etl_dag.load_data scheduled__2025-01-08T05:00:00+00:00 [queued]>
+[2025-01-08T06:45:31.377+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: complex_etl_dag.load_data scheduled__2025-01-08T05:00:00+00:00 [queued]>
+[2025-01-08T06:45:31.378+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-01-08T06:45:31.399+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load_data> on 2025-01-08 05:00:00+00:00
+[2025-01-08T06:45:31.406+0000] {standard_task_runner.py:63} INFO - Started process 225 to run task
+[2025-01-08T06:45:31.410+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'complex_etl_dag', 'load_data', 'scheduled__2025-01-08T05:00:00+00:00', '--job-id', '890', '--raw', '--subdir', 'DAGS_FOLDER/dag_test.py', '--cfg-path', '/tmp/tmpygoe7xi_']
+[2025-01-08T06:45:31.413+0000] {standard_task_runner.py:91} INFO - Job 890: Subtask load_data
+[2025-01-08T06:45:31.497+0000] {task_command.py:426} INFO - Running <TaskInstance: complex_etl_dag.load_data scheduled__2025-01-08T05:00:00+00:00 [running]> on host 4ff5b0867c78
+[2025-01-08T06:45:31.669+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='complex_etl_dag' AIRFLOW_CTX_TASK_ID='load_data' AIRFLOW_CTX_EXECUTION_DATE='2025-01-08T05:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-08T05:00:00+00:00'
+[2025-01-08T06:45:31.670+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-08T06:45:31.701+0000] {logging_mixin.py:188} INFO - Loading data: data_transformed
+[2025-01-08T06:45:31.702+0000] {python.py:237} INFO - Done. Returned value was: data_loaded
+[2025-01-08T06:45:31.703+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-08T06:45:31.741+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=complex_etl_dag, task_id=load_data, run_id=scheduled__2025-01-08T05:00:00+00:00, execution_date=20250108T050000, start_date=20250108T064531, end_date=20250108T064531
+[2025-01-08T06:45:31.784+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-01-08T06:45:31.814+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-08T06:45:31.817+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

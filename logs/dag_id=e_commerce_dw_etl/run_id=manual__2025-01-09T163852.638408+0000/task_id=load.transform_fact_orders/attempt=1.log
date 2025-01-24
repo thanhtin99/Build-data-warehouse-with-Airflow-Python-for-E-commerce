@@ -1,0 +1,35 @@
+[2025-01-09T16:40:16.634+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-09T16:40:16.672+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e_commerce_dw_etl.load.transform_fact_orders manual__2025-01-09T16:38:52.638408+00:00 [queued]>
+[2025-01-09T16:40:16.683+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e_commerce_dw_etl.load.transform_fact_orders manual__2025-01-09T16:38:52.638408+00:00 [queued]>
+[2025-01-09T16:40:16.684+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-09T16:40:16.701+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): load.transform_fact_orders> on 2025-01-09 16:38:52.638408+00:00
+[2025-01-09T16:40:16.706+0000] {standard_task_runner.py:63} INFO - Started process 4329 to run task
+[2025-01-09T16:40:16.709+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e_commerce_dw_etl', 'load.transform_fact_orders', 'manual__2025-01-09T16:38:52.638408+00:00', '--job-id', '932', '--raw', '--subdir', 'DAGS_FOLDER/e_commerce_dw_dag.py', '--cfg-path', '/tmp/tmpcegpb0o2']
+[2025-01-09T16:40:16.712+0000] {standard_task_runner.py:91} INFO - Job 932: Subtask load.transform_fact_orders
+[2025-01-09T16:40:16.786+0000] {task_command.py:426} INFO - Running <TaskInstance: e_commerce_dw_etl.load.transform_fact_orders manual__2025-01-09T16:38:52.638408+00:00 [running]> on host 683e2530fb40
+[2025-01-09T16:40:17.018+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='e_commerce_dw_etl' AIRFLOW_CTX_TASK_ID='load.transform_fact_orders' AIRFLOW_CTX_EXECUTION_DATE='2025-01-09T16:38:52.638408+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-09T16:38:52.638408+00:00'
+[2025-01-09T16:40:17.019+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-09T16:40:17.040+0000] {base.py:84} INFO - Using connection ID 'postgres' for task execution.
+[2025-01-09T16:40:17.057+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers/common/sql/hooks/sql.py:263 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-01-09T16:40:18.112+0000] {base.py:84} INFO - Using connection ID 'postgres' for task execution.
+[2025-01-09T16:40:18.126+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers/common/sql/hooks/sql.py:263 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-01-09T16:40:19.123+0000] {base.py:84} INFO - Using connection ID 'postgres' for task execution.
+[2025-01-09T16:40:19.136+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers/common/sql/hooks/sql.py:263 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-01-09T16:40:19.740+0000] {base.py:84} INFO - Using connection ID 'postgres' for task execution.
+[2025-01-09T16:40:19.757+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers/common/sql/hooks/sql.py:263 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-01-09T16:40:20.764+0000] {logging_mixin.py:188} INFO - Các cột trong DataFrame sau khi merge:
+[2025-01-09T16:40:20.765+0000] {logging_mixin.py:188} INFO - Index(['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp',
+       'order_approved_at', 'order_delivered_carrier_date',
+       'order_delivered_customer_date', 'order_estimated_delivery_date',
+       'order_item_id', 'product_id', 'seller_id', 'shipping_limit_date',
+       'price', 'freight_value', 'payment_sequential', 'payment_type',
+       'payment_installments', 'payment_value', 'customer_zip_code_prefix'],
+      dtype='object')
+[2025-01-09T16:40:21.243+0000] {base.py:84} INFO - Using connection ID 'postgres' for task execution.
+[2025-01-09T16:40:31.400+0000] {logging_mixin.py:188} INFO - Đã transform và lưu dữ liệu vào fact_orders
+[2025-01-09T16:40:31.470+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-01-09T16:40:31.471+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-09T16:40:31.482+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=e_commerce_dw_etl, task_id=load.transform_fact_orders, run_id=manual__2025-01-09T16:38:52.638408+00:00, execution_date=20250109T163852, start_date=20250109T164016, end_date=20250109T164031
+[2025-01-09T16:40:31.524+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-01-09T16:40:31.543+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-09T16:40:31.546+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

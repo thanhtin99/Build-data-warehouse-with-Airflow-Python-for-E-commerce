@@ -1,0 +1,58 @@
+[2025-01-08T07:17:54.285+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-01-08T07:17:54.356+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: e_commerce_dw_etl.extract.extract_and_load_to_staging manual__2025-01-08T07:17:53.488376+00:00 [queued]>
+[2025-01-08T07:17:54.374+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: e_commerce_dw_etl.extract.extract_and_load_to_staging manual__2025-01-08T07:17:53.488376+00:00 [queued]>
+[2025-01-08T07:17:54.376+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2025-01-08T07:17:54.399+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract.extract_and_load_to_staging> on 2025-01-08 07:17:53.488376+00:00
+[2025-01-08T07:17:54.407+0000] {standard_task_runner.py:63} INFO - Started process 1884 to run task
+[2025-01-08T07:17:54.412+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'e_commerce_dw_etl', 'extract.extract_and_load_to_staging', 'manual__2025-01-08T07:17:53.488376+00:00', '--job-id', '896', '--raw', '--subdir', 'DAGS_FOLDER/e_commerce_dw_dag.py', '--cfg-path', '/tmp/tmpq2y2iqzm']
+[2025-01-08T07:17:54.416+0000] {standard_task_runner.py:91} INFO - Job 896: Subtask extract.extract_and_load_to_staging
+[2025-01-08T07:17:54.498+0000] {task_command.py:426} INFO - Running <TaskInstance: e_commerce_dw_etl.extract.extract_and_load_to_staging manual__2025-01-08T07:17:53.488376+00:00 [running]> on host 4ff5b0867c78
+[2025-01-08T07:17:54.652+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='e_commerce_dw_etl' AIRFLOW_CTX_TASK_ID='extract.extract_and_load_to_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-01-08T07:17:53.488376+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-08T07:17:53.488376+00:00'
+[2025-01-08T07:17:54.653+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-01-08T07:17:54.692+0000] {base.py:84} INFO - Using connection ID 'mysql' for task execution.
+[2025-01-08T07:17:54.727+0000] {base.py:84} INFO - Using connection ID 'mysql' for task execution.
+[2025-01-08T07:17:54.757+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers/common/sql/hooks/sql.py:263 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-01-08T07:17:54.765+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-01-08T07:17:54.766+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/sql.py", line 2018, in execute
+    cur.execute(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/MySQLdb/cursors.py", line 179, in execute
+    res = self._query(mogrified_query)
+  File "/home/airflow/.local/lib/python3.10/site-packages/MySQLdb/cursors.py", line 330, in _query
+    db.query(q)
+  File "/home/airflow/.local/lib/python3.10/site-packages/MySQLdb/connections.py", line 261, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1046, 'No database selected')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/extract_data.py", line 30, in extract_and_load_to_staging
+    df = source_operator.get_data_to_pd(f"SELECT * FROM {table}")
+  File "/opt/airflow/plugins/mysql_operator.py", line 15, in get_data_to_pd
+    return self.mysqlhook.get_pandas_df(query)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/common/sql/hooks/sql.py", line 263, in get_pandas_df
+    return psql.read_sql(sql, con=conn, params=parameters, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/sql.py", line 564, in read_sql
+    return pandas_sql.read_query(
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/sql.py", line 2078, in read_query
+    cursor = self.execute(*args)
+  File "/home/airflow/.local/lib/python3.10/site-packages/pandas/io/sql.py", line 2030, in execute
+    raise ex from exc
+pandas.errors.DatabaseError: Execution failed on sql 'SELECT * FROM product_category_name_translation': (1046, 'No database selected')
+[2025-01-08T07:17:54.787+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=e_commerce_dw_etl, task_id=extract.extract_and_load_to_staging, run_id=manual__2025-01-08T07:17:53.488376+00:00, execution_date=20250108T071753, start_date=20250108T071754, end_date=20250108T071754
+[2025-01-08T07:17:54.804+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 896 for task extract.extract_and_load_to_staging (Execution failed on sql 'SELECT * FROM product_category_name_translation': (1046, 'No database selected'); 1884)
+[2025-01-08T07:17:54.834+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-01-08T07:17:54.885+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-08T07:17:54.903+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
