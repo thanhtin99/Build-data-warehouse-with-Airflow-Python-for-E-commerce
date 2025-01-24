@@ -6,12 +6,14 @@
 Key languages and data platforms of the project:
 
 - Python and custom scripts were used to extract and load eCommerce data efficiently from CSV files and MySQL databases.
+- Design the data warehouse according to a star schema with 1 Fact_orders table and 6 dim tables
 - PostgreSQL served as the staging area and the final data warehouse, handling structured sales data.
 - Apache Airflow orchestrated the entire workflow, ensuring smooth operations from extraction to transformation.
 - Containerized the project using Docker for seamless environment management and consistent deployment.
 - Power BI provided the final layer of visualization, offering insightful sales analytics and business intelligence.
 
 Data Model:
+
 ![image](https://github.com/user-attachments/assets/0af9b4fb-4489-4984-bc63-72a2e1fa69df)
 
 ![image](https://github.com/user-attachments/assets/6eaf6963-8272-437a-9bdf-1b57bfc538e2)
