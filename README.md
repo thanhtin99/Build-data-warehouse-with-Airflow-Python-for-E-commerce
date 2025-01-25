@@ -16,6 +16,7 @@ Data Model:
 
 ![image](https://github.com/user-attachments/assets/0af9b4fb-4489-4984-bc63-72a2e1fa69df)
 
+
 ![image](https://github.com/user-attachments/assets/6eaf6963-8272-437a-9bdf-1b57bfc538e2)
 
 
@@ -25,5 +26,6 @@ Data Model:
 ### Dashboard with Power BI
 ![image](https://github.com/user-attachments/assets/5be72d62-6aa3-44c5-ab8d-6001057d7434)
 
-![image](https://github.com/user-attachments/assets/7f9478a9-dc41-4573-bb89-3ecc1332b4ca)
+![image](https://github.com/user-attachments/assets/67d3f30c-b0f0-43fd-beff-f1938912801c)
+
 
